@@ -49,8 +49,6 @@
 		</script>
 		<script type="module">
 			import * as THREE from 'https://threejs.org/build/three.module.js';
-			import Stats from 'https://threejs.org/examples/jsm/libs/stats.module.js';
-
 			import { OrbitControls } from 'https://threejs.org/examples/jsm/controls/OrbitControls.js';
 			import { EffectComposer } from 'https://threejs.org/examples/jsm/postprocessing/EffectComposer.js';
 			import { RenderPass } from 'https://threejs.org/examples/jsm/postprocessing/RenderPass.js';
@@ -103,8 +101,6 @@
 
 			container = document.getElementById( 'container' );
 			container.appendChild( renderer.domElement );
-			stats = new Stats();
-			container.appendChild( stats.dom );
 
 			//	CAMERA
 
@@ -181,6 +177,7 @@
 				bloomPass.radius = Number( value );
 				render();
 			} );
+			gui.hide();
 
 
 			//	INITIALIZATION
