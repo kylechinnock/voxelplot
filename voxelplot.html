@@ -68,8 +68,8 @@
 			var params = {
 				exposure: 0.25,
 				bloomThreshold: 0.03,
-				bloomStrength: 3,
-				bloomRadius: 1,
+				bloomStrength: 5,
+				bloomRadius: 0.75,
 				bloom: true
 			};
 
@@ -167,10 +167,6 @@
 			} );
 
 			var folder = gui.addFolder( 'Bloom Parameters' );
-			folder.add( params, 'exposure', 0.1, 1 ).onChange( function ( value ) {
-				renderer.toneMappingExposure = Math.pow( value, 4.0 );
-				render();
-			} );
 			folder.add( params, 'bloomThreshold', 0.0, 1.0 ).onChange( function ( value ) {
 
 				bloomPass.threshold = Number( value );
@@ -198,7 +194,7 @@
 
 				//	DATA
 
-				var scale=0.5;
+				var scale=1;
 				var width = data.length, height = data[0].length, depth = data[0][0].length;
 				var positions = [];
 				var opacities = [];
