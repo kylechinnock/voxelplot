@@ -48,13 +48,13 @@
 			}
 		</script>
 		<script type="module">
-			import * as THREE from 'https://www.unpkg.com/three@0.116.1/build/three.module.js';
-			import { OrbitControls } from 'https://threejs.org/examples/jsm/controls/OrbitControls.js';
-			import { EffectComposer } from 'https://threejs.org/examples/jsm/postprocessing/EffectComposer.js';
-			import { RenderPass } from 'https://threejs.org/examples/jsm/postprocessing/RenderPass.js';
-			import { ShaderPass } from 'https://threejs.org/examples/jsm/postprocessing/ShaderPass.js';
-			import { UnrealBloomPass } from 'https://threejs.org/examples/jsm/postprocessing/UnrealBloomPass.js';
-			import { GUI } from 'https://threejs.org/examples/jsm/libs/dat.gui.module.js';
+			import * as THREE from 'https://www.unpkg.com/three@0.117.0/build/three.module.js';
+			import { OrbitControls } from 'https://www.unpkg.com/three@0.117.0/examples/jsm/controls/OrbitControls.js';
+			import { EffectComposer } from 'https://www.unpkg.com/three@0.117.0/examples/jsm/postprocessing/EffectComposer.js';
+			import { RenderPass } from 'https://www.unpkg.com/three@0.117.0/examples/jsm/postprocessing/RenderPass.js';
+			import { ShaderPass } from 'https://www.unpkg.com/three@0.117.0/examples/jsm/postprocessing/ShaderPass.js';
+			import { UnrealBloomPass } from 'https://www.unpkg.com/three@0.117.0/examples/jsm/postprocessing/UnrealBloomPass.js';
+			import { GUI } from 'https://www.unpkg.com/three@0.117.0/examples/jsm/libs/dat.gui.module.js';
 
 			var container, stats, camera, 
 			    scene, renderer, controls, points;
@@ -64,10 +64,10 @@
 			bloomLayer.set( BLOOM_SCENE );
 
 			var params = {
-				exposure: 0.25,
-				bloomThreshold: 0.03,
-				bloomStrength: 5,
-				bloomRadius: 0.75,
+				exposure: 0.3,
+				bloomThreshold: 0.021,
+				bloomStrength: 7,
+				bloomRadius: 0.3,
 				bloom: true
 			};
 
@@ -163,17 +163,17 @@
 			} );
 
 			var folder = gui.addFolder( 'Bloom Parameters' );
-			folder.add( params, 'bloomThreshold', 0.0, 1.0 ).onChange( function ( value ) {
+			folder.add( params, 'bloomThreshold', 0.0, 0.1 ).onChange( function ( value ) {
 
 				bloomPass.threshold = Number( value );
 				render();
 			} );
-			folder.add( params, 'bloomStrength', 0.0, 10.0 ).onChange( function ( value ) {
+			folder.add( params, 'bloomStrength', 4.0, 8.0 ).onChange( function ( value ) {
 
 				bloomPass.strength = Number( value );
 				render();
 			} );
-			folder.add( params, 'bloomRadius', 0.0, 1.0 ).step( 0.01 ).onChange( function ( value ) {
+			folder.add( params, 'bloomRadius', 0.0, 0.7 ).step( 0.01 ).onChange( function ( value ) {
 				bloomPass.radius = Number( value );
 				render();
 			} );
