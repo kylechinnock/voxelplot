@@ -1,1 +1,1 @@
-# voxelplot
+This is a tensor generator and visualization for a moving average crossover strategy across any three cryptocurrency blockchains, used as input for each temporal frame of a neural network in ongoing development. 
